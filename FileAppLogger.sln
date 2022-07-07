@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppLogger", "FileAppLogger\FileAppLogger.csproj", "{06171C0C-13A7-4647-B047-B11CCBD6332C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppLogger.UnitTest", "FileAppLogger.UnitTest\FileAppLogger.UnitTest.csproj", "{4B4D1C4A-04F3-41A5-9FF0-A41F5E6E86A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06171C0C-13A7-4647-B047-B11CCBD6332C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06171C0C-13A7-4647-B047-B11CCBD6332C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06171C0C-13A7-4647-B047-B11CCBD6332C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06171C0C-13A7-4647-B047-B11CCBD6332C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4D1C4A-04F3-41A5-9FF0-A41F5E6E86A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4D1C4A-04F3-41A5-9FF0-A41F5E6E86A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4D1C4A-04F3-41A5-9FF0-A41F5E6E86A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4D1C4A-04F3-41A5-9FF0-A41F5E6E86A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88A57ED6-3760-4A5C-B1B2-44C6F46703A0}
+	EndGlobalSection
+EndGlobal
