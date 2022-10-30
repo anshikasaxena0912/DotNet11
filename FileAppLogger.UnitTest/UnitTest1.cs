@@ -9,7 +9,7 @@ namespace FileAppLogger.UnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            Logger.LogToFile("Test Message 002");
+            Logger.LogToFile("Test Message 001");
         }
     }
 }
