@@ -13,6 +13,11 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  Major: '1'
+  Minor: '0'
+  revision: $[counter(variables['Minor'],1)]
+  nugetVersion: '$(Major).$(Minor).$(Revision)'
+  nugetProjectName: 'FileAppLogger'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -28,4 +33,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
+- task: NuGetCommand@2
+  displayName: "Create Nuget Package"
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/$(nugetProjectName).csproj'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'nugetVersion'
