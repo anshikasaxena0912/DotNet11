@@ -19,32 +19,13 @@ variables:
   nugetVersion: '$(Major).$(Minor).$(Revision)'
   nugetProjectName: 'FileAppLogger'
 
+#Your build pipeline references an undefined variable named ‘BuildConfiguration’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
+  displayName: Publish
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: NuGetCommand@2
-  displayName: "Create Nuget Package"
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/$(nugetProjectName).csproj'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: 'nugetVersion'
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '2b6a5871-c14a-4608-b011-1e5fd2f5bc92/effe145c-3b68-4e9b-8034-a583acfe4a8c'
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: True
