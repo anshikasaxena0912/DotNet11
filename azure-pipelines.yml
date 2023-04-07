@@ -41,3 +41,10 @@ steps:
     packDestination: '$(Build.ArtifactStagingDirectory)'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'nugetVersion'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '2b6a5871-c14a-4608-b011-1e5fd2f5bc92/effe145c-3b68-4e9b-8034-a583acfe4a8c'
